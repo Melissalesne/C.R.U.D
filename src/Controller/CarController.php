@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Repository\VoitureRepository;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,9 +14,13 @@ class CarController extends AbstractController
     /**
      * @Route("/client/cars", name="cars")
      */
-    public function index(VoitureRepository $repo): Response
+    public function index(VoitureRepository $repo, PaginatorInterface $paginatorInterface, Request $request): Response
     {
-        $voitures = $repo->findAll();
+        $voitures = $paginatorInterface->paginate(
+            $repo->findAllWithPagination(),
+            $request->query->getInt('page', 1), /*page number*/
+            6 /*limit per page*/
+        );
 
         return $this->render('car/index.html.twig', [
             "voitures" => $voitures
