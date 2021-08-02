@@ -6,6 +6,11 @@
 {% block body %}
 	<div class="container mt-5">
 		<h1 class="text-center">Listes des voitures</h1>
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 		{{form_start(form)}}
 		<div class="row no-gutters align-items-center text-center">
 			<div class="col">
@@ -47,6 +52,21 @@
 								</div>
 							</div>
 						</div>
+						{% if admin %}
+							<div class="row no-gutters">
+								<div class="col-12">
+									<a href="{{ path('creationVoiture') }}" class="col btn btn-outline-success">Ajouter</a>
+									<a href="{{ path('modifVoiture', {'id' : voiture.id}) }}" class="col btn btn-outline-warning">Modifier</a>
+									<form method="post" action="{{ path('supVoiture',{'id':voiture.id})}}" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
+										<input type="hidden" name="_method" value="SUP">
+										<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ voiture.id)}}">
+										<input type="submit" class="col btn btn-outline-danger " value="supprimer">
+									</form>
+
+
+								</div>
+							</div>
+						{% endif %}
 					</div>
 				</div>
 			{% endfor %}
