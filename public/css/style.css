@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #EAD1DC;
+    
+}
+.img {
+    height: 600px;
+    width: 100%;
+}
+
+h1 {
+     font-family: 'Style Script', cursive;
+     font-size: 50px;
+}
