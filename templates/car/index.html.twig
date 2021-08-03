@@ -54,13 +54,13 @@
 						</div>
 						{% if admin %}
 							<div class="row no-gutters">
-								<div class="col-12">
+								<div class="col-8">
 									<a href="{{ path('creationVoiture') }}" class="col btn btn-outline-success">Ajouter</a>
 									<a href="{{ path('modifVoiture', {'id' : voiture.id}) }}" class="col btn btn-outline-warning">Modifier</a>
 									<form method="post" action="{{ path('supVoiture',{'id':voiture.id})}}" onsubmit="return confirm('Voulez-vous vraiment supprimer ?');">
 										<input type="hidden" name="_method" value="SUP">
 										<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ voiture.id)}}">
-										<input type="submit" class="col btn btn-outline-danger " value="supprimer">
+										<input type="submit" class="col btn btn-outline-danger mr-auto " value="supprimer">
 									</form>
 
 
