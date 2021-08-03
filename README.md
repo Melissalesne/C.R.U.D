@@ -1,11 +1,11 @@
 # C.R.U.D symfony 5.1
 
--Affichage des voitures par Marques/Modéles
--Modifier un véhicule
--Ajouter un véhicule
--Supprimer un véhicule
--Ajout d'un système de filtre
--Pagination
--Utilisation de Faker
--Formulaire inscription/connexion et déconnexion.
--Rôles USER/ADMIN.
+1- Affichage des voitures par Marques/Modéles
+2- Modifier un véhicule
+3- Ajouter un véhicule
+4- Supprimer un véhicule
+5- Ajout d'un système de filtre
+6- Pagination
+7- Utilisation de Faker
+8- Formulaire inscription/connexion et déconnexion.
+9- Rôles USER/ADMIN.
